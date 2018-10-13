@@ -1,0 +1,40 @@
+{
+  "name": "graphql_react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "apollo-boost": "^0.1.16",
+    "apollo-server": "^2.1.0",
+    "cookie-parser": "^1.4.3",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.10.0",
+    "morgan": "^1.9.1",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.1",
+    "react": "^16.5.2",
+    "react-apollo": "^2.2.4",
+    "react-bootstrap": "^0.32.4",
+    "react-dom": "^16.5.2",
+    "react-paginate": "^5.2.4",
+    "react-responsive-modal": "^3.4.0",
+    "react-scripts": "2.0.4",
+    "react-select": "^2.1.0",
+    "sequelize": "^4.39.0",
+    "serve-favicon": "^2.5.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
