@@ -14,10 +14,12 @@ const options = [
     handlePageClick = (data) => {
         let selected = data.selected;
         let offset = Math.ceil(selected * this.props.perPage);
+        console.log(offset,selected);
     
-        this.setState({offset: offset}, () => {
-            this.loadCommentsFromServer();
-        });
+        // this.setState({offset: offset}, () => {
+
+        //     //this.loadCommentsFromServer();
+        // });
         };
 
     handleChange = (selectedOption) => {
@@ -42,7 +44,8 @@ const options = [
         <Query
         query={gql`
         {
-            mails(is_active:"YES") {            
+            mails(is_active:"YES") { 
+                id           
                 email
                 notes
                 is_active
@@ -54,15 +57,15 @@ const options = [
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error :(</p>;
              return data.mails.map((mailsNotes) => (                
-                <Notes notes={mailsNotes}/>    
-               
+                <Notes notes={mailsNotes}/>                
         
             ));            
         }}
     </Query>:select==="NO"? <Query
         query={gql`
         {
-            mails(is_active:"NO") {            
+            mails(is_active:"NO") {  
+                id          
                 email
                 notes
                 is_active
@@ -82,7 +85,8 @@ const options = [
     </Query>: <Query
         query={gql`
         {
-            mails {            
+            mails {
+                id            
                 email
                 notes
                 is_active
@@ -101,44 +105,23 @@ const options = [
         }}
     </Query>}
     <div className="pagination-wrap">
-    <ReactPaginate previousLabel={"previous"}
-    nextLabel={"next"}
-    breakLabel={<a href="">...</a>}
-    breakClassName={"break-me"}
-    pageCount={2}
-    marginPagesDisplayed={2}
-    pageRangeDisplayed={5}
-    onPageChange={this.handlePageClick}
-    containerClassName={"pagination"}
-    subContainerClassName={"pages pagination"}
-    activeClassName={"active"} />
+    <ReactPaginate
+        previousLabel={"previous"}
+        nextLabel={"next"}
+        breakLabel={<a href="">...</a>}
+        breakClassName={"break-me"}
+        pageCount={2}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={this.handlePageClick}
+        containerClassName={"pagination"}
+        subContainerClassName={"pages pagination"}
+        activeClassName={"active"}
+    />
     </div>
     </div>)
   }
 }
 
 export default Content
-// const Content = () => (
-//     <Query
-//         query={gql`
-//         {
-//             mails {            
-//                 email
-//                 notes
-//                 is_active
-//             }
-//           }
-//     `}
-//     >
-//         {({ loading, error, data }) => {
-//             if (loading) return <p>Loading...</p>;
-//             if (error) return <p>Error :(</p>;
-//              return data.mails.map(({email, notes,is_active}) => (
-//                 <div>
-//                     <p>{`${email} ${notes} ${is_active}`}</p>
-//                 </div>
-//             ));
-//         }}
-//     </Query>
-// );
-// export default Content;
+

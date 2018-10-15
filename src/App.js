@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Content from "./Content";
+import Content from "./component/Content";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 const client = new ApolloClient({

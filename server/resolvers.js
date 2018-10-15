@@ -5,6 +5,7 @@ module.exports = {
         mails(_, args) {
             return Mail.findAll({where: args});
         },
+        
     },
 
     Mutation: {
@@ -17,6 +18,16 @@ module.exports = {
             }).catch(error => {
                 return {message: `Invalid email address or password.`}
             })
+        },
+        updateMail: async (_, args) => {
+            console.log('Args',{where: args.id});
+            return Mail.update(
+                args,
+                {where: { id: args.id } }
+            ).then( (result) => {
+                console.log(result);
+               return result;
+            });
         }
     }
 };

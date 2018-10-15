@@ -90,7 +90,11 @@ const typeDefs = gql
        login (
            email: String!,
            password: String!,
-       ): Message
+       ): Message,
+       updateMail (
+           id: Int!,           
+           is_active: String,
+       ): Mail
    }
    schema {
        query: Query
