@@ -16,16 +16,22 @@ covered by a semi-transparent black screen
 Running 
 
 git clone https://github.com/kmaulik/Email-Client.git
+
 npm i
+
 npm start
+
 open http://localhost:3000
 
 
 To Running server
+
 node server/app.js
+
 open http://localhost:4000/graphql
 
 
 Create Database In MySQL: email_client
+
 import email_client.sql file in MySQL database
 
